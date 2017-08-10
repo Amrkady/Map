@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang ="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="initial-scale=1">
+      <title>Temples Map</title>
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/style.css">
+      <script src="js/jQuery.js"></script>    
+      <script>
+         function googleSuccess() {
+                 if (google) {
+                     ko.applyBindings(new ViewModel());
+                 } else {
+
+          $('#map').append("<h2><p>Could not load Google Maps</p></h2>");
+         
+                 }
+             }
+      </script>     
+   </head>
+   <body>
+      <div class="container-fluid">
+         <div class ="row, text-center">
+            <div class="site-wrapper">
+               <div class="main">
+                  <div class="wrap">
+                     <section id="header">
+                        <div class="title">
+                           <h1>Temples Map</h1>
+                        </div>
+                     </section>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col">
+            <div class ="col-md-12 title st">
+               <h2 class = >Temples</h2>
+               <input id="pac-input" class="controls" placeholder="Search…" type="search" data-bind="textInput: Searchquery" >
+               <nav id="places">
+                  <ul data-bind="foreach: Visible">
+                     <ol>
+                        <a data-bind="text: title, click: TemplesList" href="#"></a>
+                     </ol>
+                  </ul>
+               </nav>
+            </div>
+            <div class = "col-md-12">
+               <div id = "map"></div>
+            </div>
+         </div>
+         <script  src="js/knockout-3.4.1.js"></script>
+         <script  src="js/app.js"></script>
+         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2KblnfHyXVIWvU8V7t43DQCI9IDqfRFE&callback=googleSuccess" async defer onerror="Error()"></script>
+      </div>
+   </body>
+</html>
